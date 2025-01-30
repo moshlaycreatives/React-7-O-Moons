@@ -1,260 +1,267 @@
-// import React, { useRef, useState, useEffect } from 'react';
-// import { Box, Typography, Button, Paper } from '@mui/material';
-// import ArrowOutwardIcon from '@mui/icons-material/ArrowForward';
+// import React from "react";
+// import { Box, Typography, useMediaQuery } from "@mui/material";
 // import Grid from "@mui/material/Grid2";
-// import { keyframes } from '@mui/system';
-// import PlantCard from './PlantCard';
-// import ProductCrad from './ProductCrad';
-// import QualityCard from './QualityCard';
-// import Card from './Card';
-// import Footer from './Footer';
-// import According from './According';
-// import ViewDetail from './ViewDetail';
+// import { motion } from "framer-motion";
+// import { useTheme } from '@mui/material/styles';
 
 
 
-// // Custom hook for intersection observer
-// const useInView = () => {
-//     const [isInView, setIsInView] = useState(false);
-//     const ref = useRef(null);
 
-//     useEffect(() => {
-//         const observer = new IntersectionObserver(
-//             ([entry]) => {
-//                 if (entry.isIntersecting) {
-//                     setIsInView(true);
-//                     observer.disconnect();
-//                 }
-//             },
-//             { threshold: 0.1 }
-//         );
 
-//         if (ref.current) {
-//             observer.observe(ref.current);
-//         }
+// const ProductCrad = () => {
+//     const theme = useTheme();
+//     const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
-//         return () => {
-//             if (ref.current) {
-//                 observer.disconnect();
-//             }
-//         };
-//     }, []);
 
-//     return [ref, isInView];
-// };
-
-// // Define animations
-// const slideLeftRight = keyframes`
-//   0% { transform: translateX(-20px); opacity: 0; }
-//   100% { transform: translateX(20px); opacity: 1; }
-// `;
-
-// const slideUpDown = keyframes`
-//   0% { transform: translateY(-20px); opacity: 0; }
-//   100% { transform: translateY(20px); opacity: 1; }
-// `;
-
-// const slideDownUp = keyframes`
-//   0% { transform: translateY(20px); opacity: 0; }
-//   100% { transform: translateY(-20px); opacity: 1; }
-// `;
-
-// const LandingPage = () => {
-//     const [secondGridRef, secondGridInView] = useInView();
-//     const [thirdGridRef, thirdGridInView] = useInView();
 
 //     return (
 //         <>
-
-
-//             {/* header  */}
-//             <Box
-//                 sx={{
-//                     backgroundImage: `url('/image/BackgroundHeader.svg')`,
-//                     backgroundSize: 'cover',
-//                     backgroundRepeat: 'no-repeat',
-//                     height: 'auto',
-//                     width: '100%',
-//                     borderRadius: "0px 0px 90px 90px"
+//             <Box>
+//                 <Typography style={{
+//                     fontFamily: "Outfit",
+//                     fontWeight: 700,
+//                     color: "#262626",
+//                     textAlign: "center",
+//                     margin: "40px 0px 0px 0px"
 //                 }}
-//             >
-//                 {/* AppBar */}
 
+//                     sx={{
+//                         fontSize: { xs: "22px", md: "50px" },
+//                         lineHeight: { xs: "30px", md: "63px" },
+//                     }}
+//                 >
+//                     Our Kratom Products
+//                 </Typography>
+//                 <Typography style={{
+//                     fontFamily: "Outfit",
+//                     fontWeight: 400,
+//                     fontSize: "19px",
+//                     lineHeight: "26px",
+//                     color: "#636363",
+//                     textAlign: "center",
+//                     margin: "10px 0px 40px 0px"
+//                 }}
+
+//                     sx={{
+
+//                         whiteSpace: { xs: "pre-line", md: "pre-line" }
+//                     }}
+
+//                 >
+//                     {isMobile ? " Unlock the full potential of 7 O Moons the\n purests and most powerful the 7-hydroxy \n mitragyni product on the market.Crafted\n for those who demand the excellence, this \n premium formula deliver fast-acting, long \n lasting results. Say goodbye  the imitators choose the gold standard in potency and performance."
+//                         : "Unlock the full potential of 7OMoons, the purest and most powerful 7-hydroxymitragynine product on the \n market. Crafted for those  who demand excellence, this premium formula delivers fast-acting,\n  long-lasting results.  Say goodbye to  imitators—choose the gold standard \n in potency and performance."}
+
+
+//                 </Typography>
+//             </Box>
+
+//             {/* Single Row with Three Grids */}
+//             <Box>
 //                 <Grid
 //                     container
 //                     spacing={2}
 //                     sx={{
-//                         alignItems: 'center', // Align items vertically
-//                         justifyContent: '', // Spread items across the width
-//                         padding: { xs: '20px', md: '40px 0' },
-//                         flexWrap: 'nowrap'
+//                         alignItems: 'center',
+//                         justifyContent: 'center',
+//                         flexWrap: { xs: 'wrap', md: 'nowrap' },
+//                         padding: { xs: '20px', md: '20px 0' }
 //                     }}
 //                 >
-//                     <Grid item xs={12} md={8}>
-//                         <Box
-//                             sx={{
-//                                 margin: { xs: '0px', md: '0px 0px 0px 140px' },
-//                                 textAlign: { xs: 'center', md: 'left' },
-//                                 padding: { xs: '0px 20px', md: '0px' },
-//                             }}
-//                         >
-//                             <Typography
-//                                 sx={{
-//                                     fontFamily: 'Outfit',
-//                                     fontWeight: 400,
-//                                     fontSize: { xs: '32px', sm: '36px', md: '40px' }, // Responsive font sizes
-//                                     lineHeight: '44px',
-//                                     color: '#262626',
-//                                 }}
-//                             >
-//                                 Finest Organic
-//                             </Typography>
-//                             <Typography
-//                                 sx={{
-//                                     fontFamily: 'Outfit',
-//                                     fontWeight: 700,
-//                                     fontSize: { xs: '60px', sm: '80px', md: '90px' }, // Responsive font sizes
-//                                     lineHeight: { xs: '70px', sm: '90px', md: '98px' },
-//                                     color: '#0F75BC',
-//                                     margin: "10px 0px 10px 0px"
-//                                 }}
-//                             >
-//                                 {/* Herbs in Every <br /> CBD Product */}
-//                                 Imitated but <br/> Never Equaled: <br/> 7 O Moons.
-                                
-//                             </Typography>
-//                             <Typography
-//                                 sx={{
-//                                     fontFamily: 'Outfit',
-//                                     fontWeight: 400,
-//                                     fontSize: { xs: '16px', sm: '20px', md: '27px' }, // Responsive font sizes
-//                                     lineHeight: { xs: '28px', sm: '32px', md: '30px' },
-//                                     color: '#262626',
-//                                 }}
-//                             >
-                               
-//                                 Our unparalleled extraction process ensures you <br /> experience 7 O Moons at its most <br /> potent and purest form.
-//                             </Typography>
-
-//                             <Button
+//                     {/* First Grid */}
+//                     <Grid
+//                         item
+//                         xs={12}
+//                         md={4}
+//                         component={motion.div}
+//                         initial={{ y: -200, opacity: 0 }}
+//                         whileInView={{ y: 0, opacity: 1 }}
+//                         viewport={{ once: false, amount: 0.3 }}
+//                         transition={{
+//                             duration: 0.8,
+//                             type: "spring",
+//                             stiffness: 50,
+//                             damping: 10
+//                         }}
+//                     >
+//                         <Box sx={{
+//                             display: 'flex',
+//                             flexDirection: { xs: 'column', md: 'column' },
+//                             gap: { xs: '20px', md: '20px' },
+//                             alignItems: 'center',
+//                             justifyContent: 'center'
+//                         }}>
+//                             <motion.img
+//                                 src="/image/Group 499.svg"
 //                                 style={{
-//                                     backgroundColor: '#0F75BC',
-//                                     color: 'white',
-//                                     width: '150px',
-//                                     height: '42px',
-//                                     borderRadius: '61px',
-//                                     margin: '60px 0px 20px 0px',
+//                                     width: "100%",
+//                                     maxWidth: "450px",
+//                                     height: "auto"
 //                                 }}
-//                                 endIcon={<ArrowOutwardIcon />}
-//                             >
-//                                 LAB TESTS
-//                             </Button>
+//                                 initial={{ y: 100, opacity: 0 }}
+//                                 whileInView={{ y: 0, opacity: 1 }}
+//                                 viewport={{ once: false, amount: 0.3 }}
+//                                 transition={{
+//                                     duration: 0.6,
+//                                     delay: 0.2,
+//                                     type: "spring",
+//                                     stiffness: 50,
+//                                     damping: 10
+//                                 }}
+//                                 alt="Product 1"
+//                             />
+//                             <motion.img
+//                                 src="/image/Group 502.svg"
+//                                 style={{
+//                                     width: "100%",
+//                                     maxWidth: "450px",
+//                                     height: "auto"
+//                                 }}
+//                                 initial={{ y: 100, opacity: 0 }}
+//                                 whileInView={{ y: 0, opacity: 1 }}
+//                                 viewport={{ once: false, amount: 0.3 }}
+//                                 transition={{
+//                                     duration: 0.6,
+//                                     delay: 0.4,
+//                                     type: "spring",
+//                                     stiffness: 50,
+//                                     damping: 10
+//                                 }}
+//                                 alt="Product 2"
+//                             />
 //                         </Box>
 //                     </Grid>
+
+//                     {/* Second Grid */}
 //                     <Grid
 //                         item
-//                         xs={3}
-//                         md={2}
-//                         ref={secondGridRef}
-//                         sx={{
-//                             '& img': {
-//                                 animation: secondGridInView
-//                                     ? `${slideLeftRight} 1s ease-out forwards`
-//                                     : 'none',
-//                                 opacity: 0
-//                             }
+//                         xs={12}
+//                         md={4}
+//                         component={motion.div}
+//                         initial={{ y: 200, opacity: 0 }}
+//                         whileInView={{ y: 0, opacity: 1 }}
+//                         viewport={{ once: false, amount: 0.3 }}
+//                         transition={{
+//                             duration: 0.8,
+//                             type: "spring",
+//                             stiffness: 50,
+//                             damping: 10
 //                         }}
 //                     >
-//                         <img
-//                             src="/image/SeondHeader.svg"
-//                             style={{
-//                                 width: "100%",
-//                                 maxWidth: "350px",
-//                                 height: "auto"
-//                             }}
-//                             alt="Boy"
-//                         />
-//                     </Grid>
-//                     <Grid
-//                         item
-//                         xs={3}
-//                         md={2}
-//                         ref={thirdGridRef}
-//                         sx={{
-//                             margin: { xs: '0px', md: '0px 0px 0px 10px' },
+//                         <Box sx={{
 //                             display: 'flex',
-//                             justifyContent: 'center',
+//                             flexDirection: { xs: 'column', md: 'column' },
+//                             gap: { xs: '20px', md: '20px' },
 //                             alignItems: 'center',
-//                             flexDirection: 'column',
-//                             gap: 4,
-//                             '& img:first-of-type': {
-//                                 animation: thirdGridInView
-//                                     ? `${slideUpDown} 1s ease-out forwards`
-//                                     : 'none',
-//                                 opacity: 0
-//                             },
-//                             '& img:last-of-type': {
-//                                 animation: thirdGridInView
-//                                     ? `${slideDownUp} 1s ease-out forwards`
-//                                     : 'none',
-//                                 opacity: 0,
-//                                 animationDelay: '0.3s'
-//                             }
+//                             justifyContent: 'center'
+//                         }}>
+//                             <motion.img
+//                                 src="/image/Group 500.svg"
+//                                 style={{
+//                                     width: "100%",
+//                                     maxWidth: "450px",
+//                                     height: "auto"
+//                                 }}
+//                                 initial={{ y: -100, opacity: 0 }}
+//                                 whileInView={{ y: 0, opacity: 1 }}
+//                                 viewport={{ once: false, amount: 0.3 }}
+//                                 transition={{
+//                                     duration: 0.6,
+//                                     delay: 0.2,
+//                                     type: "spring",
+//                                     stiffness: 50,
+//                                     damping: 10
+//                                 }}
+//                                 alt="Product 3"
+//                             />
+//                             <motion.img
+//                                 src="/image/Group 503.svg"
+//                                 style={{
+//                                     width: "100%",
+//                                     maxWidth: "450px",
+//                                     height: "auto"
+//                                 }}
+//                                 initial={{ y: -100, opacity: 0 }}
+//                                 whileInView={{ y: 0, opacity: 1 }}
+//                                 viewport={{ once: false, amount: 0.3 }}
+//                                 transition={{
+//                                     duration: 0.6,
+//                                     delay: 0.4,
+//                                     type: "spring",
+//                                     stiffness: 50,
+//                                     damping: 10
+//                                 }}
+//                                 alt="Product 4"
+//                             />
+//                         </Box>
+//                     </Grid>
+
+//                     {/* Third Grid */}
+//                     <Grid
+//                         item
+//                         xs={12}
+//                         md={4}
+//                         component={motion.div}
+//                         initial={{ y: -200, opacity: 0 }}
+//                         whileInView={{ y: 0, opacity: 1 }}
+//                         viewport={{ once: false, amount: 0.3 }}
+//                         transition={{
+//                             duration: 0.8,
+//                             type: "spring",
+//                             stiffness: 50,
+//                             damping: 10
 //                         }}
 //                     >
-//                         <img
-//                             src="/image/FirstHeader.svg"
-//                             style={{
-//                                 width: "100%",
-//                                 maxWidth: "350px",
-//                                 height: "auto"
-//                             }}
-//                             alt="Boy"
-//                         />
-//                         <img
-//                             src="/image/ThirdhHeader.svg"
-//                             style={{
-//                                 width: "100%",
-//                                 maxWidth: "350px",
-//                                 height: "auto"
-//                             }}
-//                             alt="Boy"
-//                         />
+//                         <Box sx={{
+//                             display: 'flex',
+//                             flexDirection: { xs: 'column', md: 'column' },
+//                             gap: { xs: '20px', md: '20px' },
+//                             alignItems: 'center',
+//                             justifyContent: 'center'
+//                         }}>
+//                             <motion.img
+//                                 src="/image/Group 501.svg"
+//                                 style={{
+//                                     width: "100%",
+//                                     maxWidth: "450px",
+//                                     height: "auto"
+//                                 }}
+//                                 initial={{ y: 100, opacity: 0 }}
+//                                 whileInView={{ y: 0, opacity: 1 }}
+//                                 viewport={{ once: false, amount: 0.3 }}
+//                                 transition={{
+//                                     duration: 0.6,
+//                                     delay: 0.2,
+//                                     type: "spring",
+//                                     stiffness: 50,
+//                                     damping: 10
+//                                 }}
+//                                 alt="Product 5"
+//                             />
+//                             <motion.img
+//                                 src="/image/Group 504.svg"
+//                                 style={{
+//                                     width: "100%",
+//                                     maxWidth: "450px",
+//                                     height: "auto"
+//                                 }}
+//                                 initial={{ y: 100, opacity: 0 }}
+//                                 whileInView={{ y: 0, opacity: 1 }}
+//                                 viewport={{ once: false, amount: 0.3 }}
+//                                 transition={{
+//                                     duration: 0.6,
+//                                     delay: 0.4,
+//                                     type: "spring",
+//                                     stiffness: 50,
+//                                     damping: 10
+//                                 }}
+//                                 alt="Product 6"
+//                             />
+//                         </Box>
 //                     </Grid>
 //                 </Grid>
 //             </Box>
-
-
-//             <Box>
-//                 <PlantCard />
-//             </Box>
-
-//             <Box>
-//                 <ProductCrad />
-//             </Box>
-//             <Box>
-//                 <QualityCard />
-//             </Box>
-
-
-//             <Box>
-//                 <According />
-//             </Box>
-
-//             <Box>
-//                 <Card />
-//                 <ViewDetail/>
-//             </Box>
-
-//             <Box>
-//                 <Footer />
-//             </Box>
-
-
 //         </>
-//     );
-// };
+//     )
+// }
 
-
-
-// export default LandingPage;
+// export default ProductCrad;

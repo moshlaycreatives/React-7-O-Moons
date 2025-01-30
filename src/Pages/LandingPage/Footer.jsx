@@ -80,7 +80,7 @@ const Footer = () => {
                                     margin: "5px 0px 20px 0px"
                                 }}
                             >
-                                Join our newsletter to stay in the know about Fookray new products, special offers <br />
+                                Join our newsletter to stay in the know about 7-o-Moons new products, special offers <br />
                                 and CBD education!
                             </Typography>
                         </Box>
@@ -157,7 +157,7 @@ const Footer = () => {
                                 }}
                                 sx={{ fontSize: { xs: "14px", md: "18px" } }} // Adjust for smaller screens
                             >
-                                Copyright © 2024 Cali Origins. All Rights Reserved.
+                                Copyright © 2025  7.o.Moons . All Rights Reserved.
                             </Typography>
 
                             <Box

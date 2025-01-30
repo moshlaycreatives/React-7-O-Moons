@@ -78,29 +78,25 @@ const Card = () => {
                     backgroundImage: `url('/image/CradBackground.svg')`,
                     backgroundSize: 'cover',
                     backgroundRepeat: 'no-repeat',
-                    minHeight: '400px',
+                    minHeight: '550px',
                     width: '100%',
                     mt: "60px",
-                    py: 4
+
                 }}
             >
-                <motion.div
-                    initial={{ opacity: 0, y: 50 }}
-                    animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-                    transition={{ duration: 0.6, ease: "easeOut" }}
-                >
-                    <Typography sx={{
+                <Box >
+                    <Typography style={{
                         fontFamily: "Outfit",
                         fontWeight: 700,
                         fontSize: "50px",
                         lineHeight: "63px",
                         color: "#0F75BC",
                         textAlign: "center",
-                        mb: 4
+
                     }}>
                         Feel the Differnce, As Nature Intended
                     </Typography>
-                </motion.div>
+                </Box>
 
                 <motion.div
                     initial="hidden"
@@ -120,6 +116,7 @@ const Card = () => {
                                 xs={12}
                                 sm={6}
                                 md={3}
+                                mt={2}
                             >
                                 <motion.div
                                     variants={cardVariants}
@@ -130,11 +127,13 @@ const Card = () => {
                                             backgroundColor: "#0F75BC",
                                             padding: "30px",
                                             height: '100%',
+                                            width: "300px",
                                             display: 'flex',
                                             flexDirection: 'column',
                                             alignItems: 'center',
                                             justifyContent: 'center',
-                                            textAlign: 'center'
+                                            textAlign: 'center',
+                                            margin: "10px 0px 0px 0px"
                                         }}
                                     >
                                         <img
@@ -177,7 +176,7 @@ const Card = () => {
 
 
 
-        
+
 
 
 

@@ -85,25 +85,33 @@ const LandingPage = () => {
                     container
                     spacing={2}
                     sx={{
-                        alignItems: 'center', // Align items vertically
-                        justifyContent: '', // Spread items across the width
+                        alignItems: 'center',
+                        justifyContent: 'center',
                         padding: { xs: '20px', md: '40px 0' },
-                        flexWrap: 'nowrap'
+                        flexWrap: { xs: 'wrap', md: 'nowrap' }
                     }}
                 >
-                    <Grid item xs={12} md={8}>
+                    {/* Text Column - Full width on xs, half width on md+ */}
+                    <Grid
+                        item
+                        xs={12}
+                        md={6}
+                        sx={{
+                            order: { xs: 1, md: 0 },
+                            textAlign: { xs: 'center', md: 'left' },
+                            padding: { xs: '0px 20px', md: '0px 40px' },
+                        }}
+                    >
                         <Box
                             sx={{
-                                margin: { xs: '0px', md: '0px 0px 0px 140px' },
-                                textAlign: { xs: 'center', md: 'left' },
-                                padding: { xs: '0px 20px', md: '0px' },
+                                margin: { xs: '0', md: '0 0 0 40px' },
                             }}
                         >
                             <Typography
                                 sx={{
                                     fontFamily: 'Outfit',
                                     fontWeight: 400,
-                                    fontSize: { xs: '32px', sm: '36px', md: '40px' }, // Responsive font sizes
+                                    fontSize: { xs: '32px', sm: '36px', md: '40px' },
                                     lineHeight: '44px',
                                     color: '#262626',
                                 }}
@@ -114,26 +122,23 @@ const LandingPage = () => {
                                 sx={{
                                     fontFamily: 'Outfit',
                                     fontWeight: 700,
-                                    fontSize: { xs: '60px', sm: '80px', md: '90px' }, // Responsive font sizes
-                                    lineHeight: { xs: '70px', sm: '90px', md: '98px' },
+                                    fontSize: { xs: '40px', sm: '80px', md: '90px' },
+                                    lineHeight: { xs: '50px', sm: '90px', md: '98px' },
                                     color: '#0F75BC',
                                     margin: "10px 0px 10px 0px"
                                 }}
                             >
-                                {/* Herbs in Every <br /> CBD Product */}
-                                Imitated but <br/> Never Equaled: <br/> 7 O Moons.
-                                
+                                Imitated but <br /> Never Equaled: <br /> 7 O Moons.
                             </Typography>
                             <Typography
                                 sx={{
                                     fontFamily: 'Outfit',
                                     fontWeight: 400,
-                                    fontSize: { xs: '16px', sm: '20px', md: '27px' }, // Responsive font sizes
+                                    fontSize: { xs: '16px', sm: '20px', md: '27px' },
                                     lineHeight: { xs: '28px', sm: '32px', md: '30px' },
                                     color: '#262626',
                                 }}
                             >
-                               
                                 Our unparalleled extraction process ensures you <br /> experience 7 O Moons at its most <br /> potent and purest form.
                             </Typography>
 
@@ -152,78 +157,125 @@ const LandingPage = () => {
                             </Button>
                         </Box>
                     </Grid>
+
+                    {/* Image Columns - Full width on xs, half width on md+ */}
+
+
                     <Grid
                         item
-                        xs={3}
-                        md={2}
-                        ref={secondGridRef}
+                        xs={12}
+                        md={6}
                         sx={{
-                            '& img': {
-                                animation: secondGridInView
-                                    ? `${slideLeftRight} 1s ease-out forwards`
-                                    : 'none',
-                                opacity: 0
-                            }
-                        }}
-                    >
-                        <img
-                            src="/image/SeondHeader.svg"
-                            style={{
-                                width: "100%",
-                                maxWidth: "350px",
-                                height: "auto"
-                            }}
-                            alt="Boy"
-                        />
-                    </Grid>
-                    <Grid
-                        item
-                        xs={3}
-                        md={2}
-                        ref={thirdGridRef}
-                        sx={{
-                            margin: { xs: '0px', md: '0px 0px 0px 10px' },
+                            order: { xs: 2, md: 1 },
                             display: 'flex',
+                            flexDirection: { xs: 'column', md: 'row' },
                             justifyContent: 'center',
                             alignItems: 'center',
-                            flexDirection: 'column',
-                            gap: 4,
-                            '& img:first-of-type': {
-                                animation: thirdGridInView
-                                    ? `${slideUpDown} 1s ease-out forwards`
-                                    : 'none',
-                                opacity: 0
+                            '@media (max-width: 600px)': {
+                                flexWrap: 'nowrap', // Removing flex-wrap on mobile
                             },
-                            '& img:last-of-type': {
-                                animation: thirdGridInView
-                                    ? `${slideDownUp} 1s ease-out forwards`
-                                    : 'none',
-                                opacity: 0,
-                                animationDelay: '0.3s'
-                            }
                         }}
                     >
-                        <img
-                            src="/image/FirstHeader.svg"
-                            style={{
-                                width: "100%",
-                                maxWidth: "350px",
-                                height: "auto"
+                        <Grid
+                            container
+                            spacing={2}
+                            sx={{
+                                width: '100%',
+                                justifyContent: 'center',
+                                '@media (max-width: 600px)': {
+                                    flexWrap: 'nowrap', // Ensuring no flex-wrap on mobile
+                                },
                             }}
-                            alt="Boy"
-                        />
-                        <img
-                            src="/image/ThirdhHeader.svg"
-                            style={{
-                                width: "100%",
-                                maxWidth: "350px",
-                                height: "auto"
-                            }}
-                            alt="Boy"
-                        />
+                        >
+                            <Grid
+                                item
+                                xs={12}
+                                md={6}
+                                ref={secondGridRef}
+                                sx={{
+                                    display: 'flex',
+                                    justifyContent: 'center',
+                                    '@media (max-width: 600px)': {
+                                        flexWrap: 'nowrap', // Preventing flex-wrap on mobile
+                                    },
+                                    '& img': {
+                                        animation: secondGridInView
+                                            ? `${slideLeftRight} 1s ease-out forwards`
+                                            : 'none',
+                                        opacity: 0
+                                    },
+                                    margin: { xs: "0px", md: "0px -45px 0px 0px" }
+                                }}
+                            >
+                                <img
+                                    src="/image/SeondHeader.svg"
+                                    style={{
+                                        width: "100%",
+                                        maxWidth: "350px",
+                                        height: "auto"
+                                    }}
+                                    alt="Boy"
+                                />
+                            </Grid>
+                            <Grid
+                                item
+                                xs={12}
+                                md={6}
+                                ref={thirdGridRef}
+                                sx={{
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    justifyContent: 'center',
+                                    alignItems: 'center',
+                                    gap: 4,
+                                    '@media (max-width: 600px)': {
+                                        flexWrap: 'nowrap', // Ensuring no flex-wrap on mobile
+                                    },
+                                    '& img:first-of-type': {
+                                        animation: thirdGridInView
+                                            ? `${slideUpDown} 1s ease-out forwards`
+                                            : 'none',
+                                        opacity: 0
+                                    },
+                                    '& img:last-of-type': {
+                                        animation: thirdGridInView
+                                            ? `${slideDownUp} 1s ease-out forwards`
+                                            : 'none',
+                                        opacity: 0,
+                                        animationDelay: '0.3s'
+                                    },
+                                }}
+                            >
+                                <img
+                                    src="/image/FirstHeader.svg"
+                                    style={{
+                                        width: "100%",
+                                        maxWidth: "350px",
+                                        height: "auto",
+                                    }}
+                                    alt="Boy"
+                                />
+                                <img
+                                    src="/image/ThirdhHeader.svg"
+                                    style={{
+                                        width: "100%",
+                                        maxWidth: "350px",
+                                        height: "auto"
+                                    }}
+                                    alt="Boy"
+                                />
+                            </Grid>
+                        </Grid>
                     </Grid>
+
+
                 </Grid>
             </Box>
+
+
+
+
+
 
 
             <Box>
@@ -233,6 +285,8 @@ const LandingPage = () => {
             <Box>
                 <ProductCrad />
             </Box>
+
+
             <Box>
                 <QualityCard />
             </Box>
@@ -244,12 +298,15 @@ const LandingPage = () => {
 
             <Box>
                 <Card />
-                <ViewDetail/>
+                <ViewDetail />
             </Box>
 
             <Box>
                 <Footer />
             </Box>
+
+
+
 
 
         </>

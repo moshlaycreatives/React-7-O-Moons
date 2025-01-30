@@ -69,62 +69,65 @@ const According = () => {
     };
 
     return (
-        <>
-            <Box>
-                <motion.div
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{
-                        once: false,
-                        amount: 0.1
-                    }}
-                    variants={containerVariants}
+        <Box sx={{
+            px: { xs: 2, sm: 4, md: 6, lg: 8 },
+            py: { xs: 4, sm: 6, md: 8 }
+        }}>
+            <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{
+                    once: false,
+                    amount: 0.1
+                }}
+                variants={containerVariants}
+            >
+                <Grid
+                    container
+                    spacing={2}
+                    direction={{ xs: 'column-reverse', md: 'row' }}
+                    alignItems="center"
+                    justifyContent="center"
                 >
                     <Grid
-                        container
-                        mt={8}
+                        item
+                        xs={12}
+                        md={6}
+                        component={motion.div}
+                        variants={gridItemVariants}
                     >
-                        <Grid
-                            item
-                            xs={3}
-                            md={6}
-                            mt={3}
-                            component={motion.div}
-                            variants={gridItemVariants}
-                        >
-                            <Box>
-                                <Typography style={{
+                        <Box sx={{ textAlign: { xs: 'center', md: 'left' } }}>
+                            <Typography
+                                variant="h3"
+                                sx={{
                                     fontFamily: "Outfit",
                                     fontWeight: 700,
-                                    fontSize: "50px",
-                                    lineHeight: "63px",
+                                    fontSize: {
+                                        xs: '2rem',
+                                        sm: '2.5rem',
+                                        md: '3rem',
+                                        lg: '3.5rem'
+                                    },
                                     color: "#262626",
-                                    textAlign: "center",
-                                }}>
-                                    What Sets us apart
-                                </Typography>
-                            </Box>
+                                    textAlign:"center",
+                                    mb: { xs: 2, md: 4 }
+                                }}
+                            >
+                                What Sets us apart
+                            </Typography>
 
                             <Box sx={{
                                 width: '100%',
                                 maxWidth: {
                                     xs: '100%',
                                     sm: '90%',
-                                    md: '80%',
-                                    lg: '70%',
-                                    xl: '60%'
+                                    md: '100%',
+                                    lg: '80%'
                                 },
-                                margin: 'auto',
+                                mx: 'auto',
                                 display: 'flex',
                                 flexDirection: 'column',
-                                gap: {
-                                    xs: 1,
-                                    sm: 2
-                                },
-                                padding: {
-                                    xs: 1,
-                                    sm: 2
-                                }
+                                gap: { xs: 1, sm: 2 }
                             }}>
                                 <motion.div
                                     initial={{ opacity: 0, x: -50 }}
@@ -162,10 +165,10 @@ const According = () => {
                                         >
                                             <Typography
                                                 variant={isMobile ? 'body2' : 'body1'}
-                                                style={{
+                                                sx={{
                                                     fontFamily: "Outfit",
                                                     fontWeight: 600,
-                                                    fontSize: "20px",
+                                                    fontSize: { xs: '1rem', sm: '1.25rem' },
                                                     lineHeight: "25px",
                                                     color: "#0F75BC",
                                                 }}
@@ -223,11 +226,12 @@ const According = () => {
                                                 }
                                             }}
                                         >
-                                            <Typography variant={isMobile ? 'body2' : 'body1'}
-                                                style={{
+                                            <Typography
+                                                variant={isMobile ? 'body2' : 'body1'}
+                                                sx={{
                                                     fontFamily: "Outfit",
                                                     fontWeight: 600,
-                                                    fontSize: "20px",
+                                                    fontSize: { xs: '1rem', sm: '1.25rem' },
                                                     lineHeight: "25px",
                                                     color: "#262626",
                                                 }}
@@ -245,9 +249,8 @@ const According = () => {
                                                     }
                                                 }}
                                             >
-                                                Our proprietary extraction process allows us to naturally isolate <br /> and preserve the most sought-after alkaloid in Mitragyna Speciosa: <br /> 7-hydroxymitragynine. With precision and care, we ensure only the <br />  finest alkaloid is retained, leaving behind unnecessary components to <br />  provide unparalleled purity and potency.
+                                                Our proprietary extraction process allows us to naturally isolate <br /> and preserve the most sought-after alkaloid in Mitragyna Speciosa: <br /> 7-hydroxymitragynine. With precision and care, we ensure only the <br />  finest alkaloid is retained, leaving behind unnecessary components to <br />  provide unparalleled purity and potency.<br />
                                                 Choose 7OMoons for a product backed by science, quality, and trust
-
                                             </Typography>
                                         </AccordionDetails>
                                     </Accordion>
@@ -287,11 +290,12 @@ const According = () => {
                                                 }
                                             }}
                                         >
-                                            <Typography variant={isMobile ? 'body2' : 'body1'}
-                                                style={{
+                                            <Typography
+                                                variant={isMobile ? 'body2' : 'body1'}
+                                                sx={{
                                                     fontFamily: "Outfit",
                                                     fontWeight: 600,
-                                                    fontSize: "20px",
+                                                    fontSize: { xs: '1rem', sm: '1.25rem' },
                                                     lineHeight: "25px",
                                                     color: "#262626",
                                                 }}
@@ -309,42 +313,47 @@ const According = () => {
                                                     }
                                                 }}
                                             >
-                                              We ensure our product is free from adulterants, bacteria, and  <br/> microorganisms. Every batch undergoes rigorous testing for potency, <br/>  cleanliness, and purity. To uphold transparency, we provide COA test <br/>  results for every batch, verified by accredited 3rd-party testing laboratories.
+                                                We ensure our product is free from adulterants, bacteria, and  <br /> microorganisms. Every batch undergoes rigorous testing for potency, <br />  cleanliness, and purity. To uphold transparency, we provide COA test <br />  results for every batch, verified by accredited 3rd-party testing laboratories.
                                             </Typography>
                                         </AccordionDetails>
                                     </Accordion>
                                 </motion.div>
                             </Box>
-                        </Grid>
-
-                        <Grid
-                            item
-                            xs={3}
-                            md={6}
-                            component={motion.div}
-                            variants={imageVariants}
-                        >
-                            <motion.img
-                                src="/image/AccordingImage.svg"
-                                style={{
-                                    width: "100%",
-                                    maxWidth: "570px",
-                                    height: "auto"
-                                }}
-                                alt="Boy"
-                                initial={{ opacity: 0, x: 100 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                transition={{ duration: 0.8 }}
-                                viewport={{
-                                    once: false,
-                                    amount: 0.1
-                                }}
-                            />
-                        </Grid>
+                        </Box>
                     </Grid>
-                </motion.div>
-            </Box>
-        </>
+
+                    <Grid
+                        item
+                        xs={12}
+                        md={6}
+                        component={motion.div}
+                        variants={imageVariants}
+                        sx={{
+                            display: 'flex',
+                            justifyContent: 'center',
+                            alignItems: 'center'
+                        }}
+                    >
+                        <motion.img
+                            src="/image/AccordingImage.svg"
+                            style={{
+                                width: "100%",
+                                maxWidth: "570px",
+                                height: "auto"
+                            }}
+                            alt="7OMoons Product"
+                            initial={{ opacity: 0, x: 100 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.8 }}
+                            viewport={{
+                                once: false,
+                                amount: 0.1
+                            }}
+                        />
+                    </Grid>
+                </Grid>
+            </motion.div>
+        </Box>
     );
 };
 
